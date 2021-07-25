@@ -12,61 +12,63 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         title: Text('Login Page'),
       ),
-      body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CircleAvatar(
-              minRadius: 50.0,
-              child: Icon(Icons.account_box_rounded),
-            ),
-            Container(
-              padding: EdgeInsets.all(15.0),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'User Name',
-                  hintText: 'Enter Your Name',
+      body: ListView(
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                padding: EdgeInsets.all(15.0),
+                child: CircleAvatar(
+                  radius: 50.0,
+                  backgroundImage: AssetImage("assets/logo.png"),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 15.0,
-            ),
-            Container(
-              padding: EdgeInsets.all(15.0),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Password',
-                  hintText: 'Enter Your Password',
+              Container(
+                padding: EdgeInsets.all(15.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'email',
+                    hintText: 'Enter Your Email',
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 15.0,
-            ),
-            Container(
-              padding: EdgeInsets.all(20.0),
-              width: double.infinity,
-              child: ElevatedButton(
-                child: Text('Login'),
-                onPressed: () {
-                  showAlertDialog(context);
-                },
+              SizedBox(
+                height: 15.0,
               ),
-            ),
-          ],
-        ),
+              Container(
+                padding: EdgeInsets.all(15.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Password',
+                    hintText: 'Enter Your Password',
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 15.0,
+              ),
+              Container(
+                padding: EdgeInsets.all(20.0),
+                width: double.infinity,
+                child: ElevatedButton(
+                  child: Text('Login'),
+                  onPressed: () {
+                    showAlertDialog(context);
+                  },
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
 }
 
-// replace this function with the examples above
-
 showAlertDialog(BuildContext context) {
-  // set up the buttons
   Widget cancelButton = TextButton(
     child: Text("Cancel"),
     onPressed: () {
@@ -87,16 +89,15 @@ showAlertDialog(BuildContext context) {
     },
   );
 
-  // set up the AlertDialog
   AlertDialog alert = AlertDialog(
-    title: Text("AlertDialog"),
+    title: Text("Alert"),
     content: Text("Are you sure you want to sing in?"),
     actions: [
       cancelButton,
       continueButton,
     ],
   );
-  // show the dialog
+
   showDialog(
     context: context,
     builder: (BuildContext context) {
